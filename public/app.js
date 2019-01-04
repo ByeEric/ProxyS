@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import RelatedPetsWrapper from "./RelatedPets/RelatedPetsWrapper";
 
 class App extends Component {
   constructor() {
@@ -8,7 +9,12 @@ class App extends Component {
   }
 
   render() {
-    return <div>Hello People!</div>;
+    return (
+      <div>
+        <div>Hello People!</div>
+        <RelatedPetsWrapper />
+      </div>
+    );
   }
 }
 

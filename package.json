@@ -31,5 +31,8 @@
     "react-dom": "^16.7.0",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "react-bootstrap": "^0.32.4"
   }
 }
