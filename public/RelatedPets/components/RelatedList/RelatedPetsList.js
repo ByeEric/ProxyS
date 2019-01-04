@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import Pet from "./Pet";
-import Row from "react-bootstrap/lib/Row";
-import Col from "react-bootstrap/lib/Col";
+import { Col, Image } from "react-bootstrap/lib";
 
 class RelatedPetsList extends Component {
   constructor() {
@@ -71,9 +69,10 @@ class RelatedPetsList extends Component {
   render() {
     return (
       <div>
-        {this.state.relatedPets.map((pet, index) => (
-          <Col md={1} xs={2}>
-            <Pet pet={pet} key={index} />
+        {this.state.relatedPets.map(pet => (
+          <Col md={1} xs={2} lg={1} key={pet.pet_id}>
+            <Image width={100} height={55} src={pet.img_url} rounded />
+            <sub>{pet.species}</sub>
           </Col>
         ))}
       </div>
