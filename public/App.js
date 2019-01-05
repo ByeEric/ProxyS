@@ -1,12 +1,26 @@
 import React, { Component } from "react";
-import RelatedPetsList from "./components/RelatedList/RelatedPetsList";
+import ReactDOM from "react-dom";
+import RelatedPetsList from "./components/RelatedPetsList";
 import { Grid, Row, Col } from "react-bootstrap/lib";
 import SelectionTabs from "./components/SelectionTabs";
 
-class RelatedPetsWrapper extends Component {
+class App extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      pet_id: 1111
+    };
+    this.handleSelect = this.handleSelect.bind(this);
+  }
+
+  handleSelect(key) {
+    console.log("obligatory clicky!");
+    this.setState(
+      {
+        pet_id: key
+      },
+      () => console.log(this.state.pet_id)
+    );
   }
 
   render() {
@@ -14,7 +28,7 @@ class RelatedPetsWrapper extends Component {
       <Grid>
         <Row>
           <Col>
-            <SelectionTabs />
+            <SelectionTabs handleSelect={this.handleSelect} />
           </Col>
         </Row>
         <Row className="show-grid">
@@ -32,4 +46,4 @@ class RelatedPetsWrapper extends Component {
   }
 }
 
-export default RelatedPetsWrapper;
+ReactDOM.render(<App />, document.getElementById("root"));

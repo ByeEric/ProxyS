@@ -70,7 +70,7 @@ class RelatedPetsList extends Component {
     return (
       <div>
         {this.state.relatedPets.map(pet => (
-          <Col md={1} xs={2} lg={1} key={pet.pet_id}>
+          <Col md={2} xs={2} lg={3} key={pet.pet_id}>
             <Image width={100} height={55} src={pet.img_url} rounded />
             <sub>{pet.species}</sub>
           </Col>
