@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "webpack": "webpack -w"
+    "webpack": "webpack -w",
+    "rebuild": "pm2 deploy ecosystem.config.js production setup"
   },
   "repository": {
     "type": "git",
