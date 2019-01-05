@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Col, Image } from "react-bootstrap/lib";
+import { Col, Image, Panel } from "react-bootstrap/lib";
 
 class RelatedPetsList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       relatedPets: [
         {
@@ -64,18 +64,36 @@ class RelatedPetsList extends Component {
         }
       ]
     };
+    this.handleThumbnailSelect = this.handleThumbnailSelect.bind(this);
+  }
+
+  handleThumbnailSelect(event) {
+    console.log(event.key);
   }
 
   render() {
     return (
-      <div>
-        {this.state.relatedPets.map(pet => (
-          <Col md={2} xs={2} lg={3} key={pet.pet_id}>
-            <Image width={100} height={55} src={pet.img_url} rounded />
-            <sub>{pet.species}</sub>
-          </Col>
-        ))}
-      </div>
+      <Panel>
+        <Panel.Heading>
+          <Panel.Title componentClass="h3">
+            You may also like these pets!
+          </Panel.Title>
+        </Panel.Heading>
+        <Panel.Body>
+          {this.state.relatedPets.map(pet => (
+            <Col md={2} xs={3} lg={2} key={pet.pet_id}>
+              <Panel
+                onClick={this.handleThumbnailSelect.bind(this)}
+                eventKey={pet.pet_id}
+              >
+                <Panel.Body>
+                  <Image width={118} height={85} src={pet.img_url} rounded />
+                </Panel.Body>
+              </Panel>
+            </Col>
+          ))}
+        </Panel.Body>
+      </Panel>
     );
   }
 }

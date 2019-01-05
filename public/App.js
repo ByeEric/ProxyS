@@ -28,19 +28,19 @@ class App extends Component {
       <Grid>
         <Row>
           <Col>
-            <SelectionTabs handleSelect={this.handleSelect} />
+            <SelectionTabs
+              currentPet={this.state.pet_id}
+              handleSelect={this.handleSelect}
+            />
           </Col>
         </Row>
-        <Row className="show-grid">
-          <Col md={8} xs={16}>
-            <h1>Recommended Pets</h1>
-          </Col>
+
+        <Row>
+          <RelatedPetsList
+            currentPet={this.state.pet_id}
+            handleSelect={this.handleSelect}
+          />
         </Row>
-        <div>
-          <Row>
-            <RelatedPetsList />
-          </Row>
-        </div>
       </Grid>
     );
   }
