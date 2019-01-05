@@ -60,12 +60,13 @@ class App extends Component {
       <Grid>
         <Row>
           <Col>
-            <SelectionTabs handleSelect={this.handleSelect} />
+            <SelectionTabs id="Tabs" handleSelect={this.handleSelect} />
           </Col>
         </Row>
 
         <Row>
           <RelatedPetsList
+            id="Pets"
             relatedPets={this.state.relatedPets}
             handleSelect={this.handleSelect}
           />
