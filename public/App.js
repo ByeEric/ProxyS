@@ -3,23 +3,55 @@ import ReactDOM from "react-dom";
 import RelatedPetsList from "./components/RelatedPetsList";
 import { Grid, Row, Col } from "react-bootstrap/lib";
 import SelectionTabs from "./components/SelectionTabs";
+import axios from "axios";
+require("dotenv").config({ path: __dirname + "/../.env" });
+
+const API = process.env.RECOMMENDS_API;
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      pet_id: 1111
+      pet_id: 1111,
+      relatedPets: []
     };
     this.handleSelect = this.handleSelect.bind(this);
+    this.emitChangePetIdEvent = this.emitChangePetIdEvent.bind(this);
+    this.getRelatedPets = this.getRelatedPets.bind(this);
+  }
+
+  componentDidMount() {
+    this.getRelatedPets(this.state.pet_id);
+  }
+
+  emitChangePetIdEvent(pet_id) {
+    [].forEach.call(document.getElementsByClassName("petIdSubscriber"), x =>
+      x.dispatchEvent(new CustomEvent("changePetId", { detail: { pet_id } }))
+    );
+  }
+
+  getRelatedPets(pet_id) {
+    axios
+      .get(`${API}/${pet_id}`)
+      .then(response => {
+        this.setState({ relatedPets: response.data });
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 
   handleSelect(key) {
-    console.log("obligatory clicky!");
+    console.log("we got the pet: ", key);
     this.setState(
       {
         pet_id: key
       },
-      () => console.log(this.state.pet_id)
+      () => {
+        console.log("local and global state has been set to pet: ", key);
+        this.emitChangePetIdEvent(key);
+        this.getRelatedPets(this.state.pet_id);
+      }
     );
   }
 
@@ -28,16 +60,13 @@ class App extends Component {
       <Grid>
         <Row>
           <Col>
-            <SelectionTabs
-              currentPet={this.state.pet_id}
-              handleSelect={this.handleSelect}
-            />
+            <SelectionTabs handleSelect={this.handleSelect} />
           </Col>
         </Row>
 
         <Row>
           <RelatedPetsList
-            currentPet={this.state.pet_id}
+            relatedPets={this.state.relatedPets}
             handleSelect={this.handleSelect}
           />
         </Row>

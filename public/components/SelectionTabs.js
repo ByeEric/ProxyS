@@ -26,7 +26,7 @@ const SelectionTabs = props => {
         <Navbar>
           <Row>
             <Col>
-              <Nav bsStyle="tabs" onSelect={props.handleSelect}>
+              <Nav bsStyle="tabs" onSelect={props.handleSelect.bind(this)}>
                 <NavDropdown eventKey="mammal" title="Mammal">
                   <MenuItem eventKey="1111">Felidae</MenuItem>
                   <MenuItem eventKey="1218">Canidae</MenuItem>
