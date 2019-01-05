@@ -8,8 +8,8 @@
     "start": "nodemon server.js",
     "webpack": "webpack -w",
     "restart": "pm2 startOrRestart ecosystem.config.js",
-    "rebuild": "pm2 deploy ecosystem.config.js production setup",
-    "deploy": "pm2 deploy ecosystem.config.js production"
+    "deploy": "pm2 deploy ecosystem.config.js production",
+    "rebuild": "pm2 deploy ecosystem.config.js production setup"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "jest": "^23.6.0",
+    "pm2": "^3.2.4",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
