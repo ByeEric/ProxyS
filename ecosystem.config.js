@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "PetsyProxy",
-      script: "/server.js"
+      script: "./server.js"
     }
   ],
   deploy: {
