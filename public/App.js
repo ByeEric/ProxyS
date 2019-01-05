@@ -4,9 +4,6 @@ import RelatedPetsList from "./components/RelatedPetsList";
 import { Grid, Row, Col } from "react-bootstrap/lib";
 import SelectionTabs from "./components/SelectionTabs";
 import axios from "axios";
-require("dotenv").config({ path: __dirname + "/../.env" });
-
-const API = process.env.RECOMMENDS_API;
 
 class App extends Component {
   constructor() {
@@ -32,7 +29,9 @@ class App extends Component {
 
   getRelatedPets(pet_id) {
     axios
-      .get(`${API}/${pet_id}`)
+      .get(
+        `http://ec2-52-206-107-252.compute-1.amazonaws.com:3050/api/recommends/${pet_id}`
+      )
       .then(response => {
         this.setState({ relatedPets: response.data });
       })
