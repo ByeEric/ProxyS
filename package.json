@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
     "webpack": "webpack -w",
+    "restart": "pm2 startOrRestart ecosystem.config.js",
     "rebuild": "pm2 deploy ecosystem.config.js production setup",
     "deploy": "pm2 deploy ecosystem.config.js production"
   },
