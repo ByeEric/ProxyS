@@ -9,16 +9,12 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      pet_id: 1111,
+      pet_id: 1112,
       relatedPets: []
     };
     this.handleSelect = this.handleSelect.bind(this);
     this.emitChangePetIdEvent = this.emitChangePetIdEvent.bind(this);
     this.getRelatedPets = this.getRelatedPets.bind(this);
-  }
-
-  componentDidMount() {
-    this.getRelatedPets(this.state.pet_id);
   }
 
   emitChangePetIdEvent(pet_id) {
@@ -51,6 +47,17 @@ class App extends Component {
         this.emitChangePetIdEvent(key);
         this.getRelatedPets(this.state.pet_id);
       }
+    );
+  }
+
+  componentDidMount() {
+    const currentPet = this.state.pet_id;
+    this.handleSelect(currentPet);
+    setTimeout(this.handleSelect.bind(this, currentPet), 1000);
+
+    console.log(
+      "componentDidMount seting global state to pet_id: ",
+      currentPet
     );
   }
 

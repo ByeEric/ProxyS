@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+      #pet-info {
+        width: 90% !important;
+        display: inline-block !important;
+        /* align-items: center !important; */
+      }
+      #root {
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway%7CRoboto%7CThasadith"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+      rel="stylesheet"
+    />
     <!-- Latest compiled and minified CSS -->
     <link
       rel="stylesheet"
@@ -16,9 +37,24 @@
       integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
       crossorigin="anonymous"
     />
+    <script
+      src="http://ec2-13-59-180-205.us-east-2.compute.amazonaws.com/app.js"
+      defer
+    ></script>
+    <script
+      src="http://ec2-18-191-41-4.us-east-2.compute.amazonaws.com/reviews.bundle.js"
+      defer
+    ></script>
+    <script
+      src="http://ec2-3-83-224-102.compute-1.amazonaws.com:8000/bundle.js"
+      defer
+    ></script>
   </head>
   <body>
     <div id="petList"></div>
+    <div id="pet-info"></div>
+    <div id="root"></div>
+    <div id="reviews"></div>
     <script type="text/javascript" src="bundle.js"></script>
   </body>
 </html>
