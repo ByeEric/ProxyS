@@ -43,7 +43,6 @@ const SelectionTabs = props => {
                   <MenuItem eventKey="10165">Cervidae</MenuItem>
                   <MenuItem eventKey="10166">Giraffidae</MenuItem>
                   <MenuItem eventKey="10168">Bovidae</MenuItem>
-                  <MenuItem eventKey="10171">Cervidae</MenuItem>
                 </NavDropdown>
               </Nav>
             </Col>
